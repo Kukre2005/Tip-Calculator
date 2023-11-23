@@ -149,7 +149,9 @@ fun EditNumberField(
         leadingIcon = { Icon(painter = painterResource(id = leadingIcon), null) },
         modifier = modifier,
         onValueChange = onValueChanged,
-        label = { Text(stringResource(label)) },
+        label = {
+            Text(stringResource(label))
+                },
         keyboardOptions = keyboardOptions
     )
 }
@@ -182,7 +184,11 @@ fun RoundTheTipRow(
  * according to the local currency.
  * Example would be "$10.00".
  */
-private fun calculateTip(amount: Double, tipPercent: Double = 15.0, roundUp: Boolean): String {
+private fun calculateTip(
+    amount: Double,
+    tipPercent: Double = 15.0,
+    roundUp: Boolean
+): String {
     var tip = tipPercent / 100 * amount
     if (roundUp) {
         tip = kotlin.math.ceil(tip)
